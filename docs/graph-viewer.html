@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Multi-Agent System - Interactive Diagrams</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+        }
+        .diagram {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .nav {
+            background: #34495e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .nav a:hover {
+            background: #3498db;
+        }
+        .description {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Marketing Multi-Agent System - Interactive Diagrams</h1>
+        
+        <div class="nav">
+            <a href="#workflow">Lead Processing Workflow</a>
+            <a href="#sequence">Agent Sequence Diagrams</a>
+            <a href="#architecture">System Architecture</a>
+            <a href="#scalability">Scalability Design</a>
+        </div>
+
+        <div class="description">
+            <strong>📋 Note:</strong> These are interactive diagrams showing the Marketing Multi-Agent System architecture and flows. 
+            All diagrams are automatically generated from the Mermaid syntax in our documentation.
+        </div>
+    </div>
+
+    <div class="container" id="workflow">
+        <h2>🔄 Lead Processing Workflow</h2>
+        <div class="description">
+            This diagram shows how leads flow through the three-agent system from initial triage to final optimization.
+        </div>
+        <div class="diagram">
+            <div class="mermaid">
+graph TD
+    A[New Lead Arrives] --> B[Lead Triage Agent]
+    B --> C{Lead Score Analysis}
+    C -->|Score ≥ 70| D[Hot Lead Category]
+    C -->|Score 40-69| E[Warm Lead Category]
+    C -->|Score < 40| F[Cold Lead Category]
+    
+    D --> G[Immediate Handoff to Engagement Agent]
+    E --> G
+    F --> H[Handoff to Campaign Optimization Agent]
+    
+    G --> I[Engagement Agent Processing]
+    I --> J{Engagement Assessment}
+    J -->|High Conversion Potential| K[Handoff to Campaign Optimization]
+    J -->|Standard Follow-up| L[Continue Nurturing Sequence]
+    
+    H --> M[Campaign Optimization Processing]
+    K --> M
+    M --> N[Strategic Recommendations]
+    M --> O[A/B Testing Setup]
+    M --> P{Escalation Required?}
+    P -->|Yes| Q[Human Intervention]
+    P -->|No| R[Automated Optimization]
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="sequence">
+        <h2>📡 Agent Communication Sequence</h2>
+        <div class="description">
+            This sequence diagram shows how agents communicate and hand off leads with context preservation.
+        </div>
+        <div class="diagram">
+            <div class="mermaid">
+sequenceDiagram
+    participant L as Lead Source
+    participant LT as Lead Triage Agent
+    participant MM as Memory Manager
+    participant MCP as MCP Server
+    participant EA as Engagement Agent
+    participant CA as Campaign Optimization Agent
+    
+    L->>LT: New lead data
+    LT->>MM: Retrieve similar lead patterns
+    MM-->>LT: Historical context
+    LT->>LT: Calculate lead score
+    LT->>LT: Determine category
+    LT->>MM: Store triage results
+    LT->>MCP: Log triage action
+    
+    Note over LT: Decision Point: Handoff Required?
+    
+    alt Hot/Warm Lead
+        LT->>EA: Handoff request with context
+        EA->>MM: Retrieve engagement history
+        MM-->>EA: Previous interactions & preferences
+        EA->>EA: Generate engagement strategy
+        EA->>MM: Store engagement plan
+        EA->>MCP: Log engagement actions
+        
+        alt High Value Lead
+            EA->>CA: Handoff for optimization
+            CA->>MM: Retrieve campaign data
+            MM-->>CA: Performance metrics & history
+            CA->>CA: Analyze ROI potential
+            CA->>MM: Store optimization insights
+        end
+    else Cold Lead
+        LT->>CA: Direct handoff for re-targeting
+        CA->>MM: Store optimization strategy
+    end
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="architecture">
+        <h2>🏗️ System Architecture</h2>
+        <div class="description">
+            High-level architecture showing the MCP server, memory systems, and agent interactions.
+        </div>
+        <div class="diagram">
+            <div class="mermaid">
+graph TB
+    subgraph "Client Layer"
+        WEB[Web Interface]
+        API[API Clients]
+        MOB[Mobile Apps]
+    end
+    
+    subgraph "Load Balancing"
+        LB[Load Balancer]
+        WAF[Web Application Firewall]
+    end
+    
+    subgraph "MCP Server Layer"
+        MCP[MCP Server]
+        AUTH[Authentication Service]
+        RATE[Rate Limiter]
+    end
+    
+    subgraph "Agent Layer"
+        LTA[Lead Triage Agent]
+        ENG[Engagement Agent]
+        OPT[Campaign Optimization Agent]
+    end
+    
+    subgraph "Memory Systems"
+        ST[Short-term Memory<br/>Redis]
+        LT[Long-term Memory<br/>PostgreSQL]
+        EP[Episodic Memory<br/>ChromaDB]
+        SM[Semantic Memory<br/>Neo4j]
+    end
+    
+    subgraph "External Services"
+        EMAIL[Email Service]
+        SMS[SMS Service]
+        CRM[CRM Integration]
+    end
+    
+    WEB --> LB
+    API --> LB
+    MOB --> LB
+    
+    LB --> WAF
+    WAF --> MCP
+    
+    MCP --> AUTH
+    MCP --> RATE
+    MCP --> LTA
+    MCP --> ENG
+    MCP --> OPT
+    
+    LTA --> ST
+    LTA --> LT
+    ENG --> LT
+    ENG --> EP
+    OPT --> EP
+    OPT --> SM
+    
+    ENG --> EMAIL
+    ENG --> SMS
+    OPT --> CRM
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="scalability">
+        <h2>📈 Scalability Architecture (10x Load)</h2>
+        <div class="description">
+            Scalable architecture design to handle 10x load increase with horizontal scaling.
+        </div>
+        <div class="diagram">
+            <div class="mermaid">
+graph TB
+    subgraph "Load Balancing Layer"
+        GLB[Global Load Balancer]
+        CDN[CDN + Edge Computing]
+        WAF[Web Application Firewall]
+    end
+    
+    subgraph "API Gateway Cluster"
+        AG1[API Gateway 1]
+        AG2[API Gateway 2]
+        AG3[API Gateway N]
+    end
+    
+    subgraph "Agent Orchestration"
+        K8S[Kubernetes Cluster]
+        HPA[Horizontal Pod Autoscaler]
+        VPA[Vertical Pod Autoscaler]
+    end
+    
+    subgraph "Agent Instances"
+        LT1[Lead Triage 1-N]
+        EA1[Engagement 1-N]
+        CO1[Campaign Opt 1-N]
+    end
+    
+    subgraph "Distributed Memory"
+        RC[Redis Cluster]
+        PGC[PostgreSQL Cluster]
+        VDB[Vector DB Cluster]
+        NGC[Neo4j Cluster]
+    end
+    
+    subgraph "Message Queue"
+        MQ[Message Queue Cluster]
+        ES[Event Streaming]
+    end
+    
+    GLB --> CDN
+    CDN --> WAF
+    WAF --> AG1
+    WAF --> AG2
+    WAF --> AG3
+    
+    AG1 --> K8S
+    AG2 --> K8S
+    AG3 --> K8S
+    
+    K8S --> HPA
+    K8S --> VPA
+    HPA --> LT1
+    HPA --> EA1
+    HPA --> CO1
+    
+    LT1 --> MQ
+    EA1 --> MQ
+    CO1 --> MQ
+    
+    MQ --> RC
+    MQ --> PGC
+    MQ --> VDB
+    MQ --> NGC
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🎯 How to Use These Diagrams</h2>
+        <div class="description">
+            <h3>For Assessment Presentation:</h3>
+            <ul>
+                <li><strong>Open this HTML file</strong> in any browser to see interactive diagrams</li>
+                <li><strong>GitHub Integration:</strong> Push to GitHub for automatic Mermaid rendering</li>
+                <li><strong>Export Options:</strong> Right-click any diagram to save as image</li>
+                <li><strong>VS Code Preview:</strong> Install Mermaid extension for live preview</li>
+            </ul>
+            
+            <h3>Source Documentation:</h3>
+            <ul>
+                <li><code>docs/agent-interaction-analysis.md</code> - Complete interaction analysis</li>
+                <li><code>docs/scalability-analysis.md</code> - 10x scaling strategy</li>
+                <li><code>docs/deployment-runbook.md</code> - Production deployment guide</li>
+                <li><code>docs/security-enhancement-plan.md</code> - Security framework</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                diagramMarginX: 50,
+                diagramMarginY: 10,
+                actorMargin: 50,
+                width: 150,
+                height: 65,
+                boxMargin: 10,
+                boxTextMargin: 5,
+                noteMargin: 10,
+                messageMargin: 35
+            }
+        });
+    </script>
+</body>
+</html>

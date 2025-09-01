@@ -1,0 +1,86 @@
+# Data Science and Analysis
+pandas>=1.5.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Machine Learning
+scikit-learn>=1.2.0
+xgboost>=1.6.0
+lightgbm>=3.3.0
+
+# Statistical Analysis
+scipy>=1.10.0
+statsmodels>=0.13.0
+
+# Jupyter and Interactive Analysis
+jupyter>=1.0.0
+ipykernel>=6.25.0
+ipywidgets>=8.0.0
+
+# Data Visualization Enhancement
+kaleido>=0.2.1
+dash>=2.10.0
+
+# Network Analysis (for knowledge graph)
+networkx>=3.1.0
+
+# Natural Language Processing (for text analysis)
+nltk>=3.8.0
+textblob>=0.17.0
+
+# JSON and Data Processing
+jsonschema>=4.17.0
+
+# Progress bars and utilities
+tqdm>=4.65.0
+
+# Export and Reporting
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Web scraping (if needed for external data)
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# FastAPI and Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+websockets>=12.0
+pydantic>=2.4.0
+
+# Database connections
+asyncpg>=0.29.0
+redis[hiredis]>=5.0.0
+neo4j>=5.13.0
+psycopg2-binary>=2.9.7
+
+# AI/ML for memory systems
+sentence-transformers>=2.2.0
+transformers>=4.35.0
+torch>=2.0.0
+
+# Vector database (choose one)
+chromadb>=0.4.15
+# pinecone-client>=2.2.4
+
+# Graph analysis
+networkx>=3.2.0
+
+# Authentication and security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+python-multipart>=0.0.6
+
+# Monitoring and logging
+prometheus-client>=0.19.0
+structlog>=23.2.0
+
+# Additional utilities
+aiofiles>=23.2.1
+httpx>=0.25.0
+pyyaml>=6.0.1
