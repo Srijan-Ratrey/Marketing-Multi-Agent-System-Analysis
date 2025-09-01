@@ -198,24 +198,6 @@ await server.start_server()
 # notebooks/marketing_analysis.ipynb contains the full analysis pipeline
 ```
 
-## 📝 Assessment Suggestions
-
-Based on the dataset structure, this assessment likely evaluates:
-
-1. **Data Analysis Skills**: Ability to explore and understand complex multi-agent data
-2. **ML Engineering**: Building robust pipelines for agent performance optimization
-3. **System Design**: Understanding of multi-agent architectures and protocols
-4. **Business Acumen**: Translating technical findings into marketing insights
-5. **Communication**: Clear presentation of findings and recommendations
-
-## 🎯 Success Criteria
-
-To excel in this assessment, focus on:
-- **Comprehensive data exploration** with meaningful insights
-- **Robust feature engineering** specific to marketing use cases
-- **Practical ML models** that solve real business problems
-- **Clear visualization** of agent interactions and performance
-- **Actionable recommendations** for system optimization
 
 ---
 
